@@ -1,0 +1,33 @@
+<ion-view title="Login">
+
+    <ion-content>
+        <div class="logologin">
+            <img src="img/logo.png">
+        </div>
+
+        <form name="form" ng-submit="login (usuario)">
+
+            <div class="list">
+
+                <label class="item item-input">
+                    <span class="input-label">Email</span>
+                    <input type="email" placeholder="exemplo@provedor.com.br" ng-model="usuario.email" required>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Senha</span>
+                    <input type="password" placeholder="******" ng-model="usuario.password" required>
+                </label>
+                <div class="button-bar">
+                    <button class="button button-dark button-block" ng-disabled="form.$invalid">Entrar</button>
+                    <a class="button button-dark button-block" ui-sref="cadastro">Criar Contar</a>
+                </div>
+
+                <a class="button button-clear button-full button-dark" ui-sref="senha">
+                        Esqueci minha senha
+                </a>
+
+        </form>
+
+    </ion-content>
+
+</ion-view>

@@ -1,0 +1,31 @@
+<ion-view title="Geral">
+    <ion-content>
+
+        <h3>{{viagem.destino}}</h3>
+
+        <div class="list list-inset">
+            <a class="item" ui-sref="tabs.informacoes({id: viagem.$id})">
+                <center>Informações</center>
+            </a>
+
+            <a class="item" ui-sref="roteiro">
+                <center>Roteiro</center>
+            </a>
+
+            <a class="item" ui-sref="chat">
+                <center>Chat</center>
+            </a>
+
+            <a class="item" ui-sref="lista">
+                <center>Check List</center>
+            </a>
+
+            <a class="item" ui-sref="perfil">
+                <center>Pefil</center>
+            </a>
+        </div>
+        <div class="button-bar">
+            <button class="button button-dark" ui-sref="tabs.viagem" ng-click="tabs.viagem">Comprar</button>
+        </div>
+    </ion-content>
+</ion-view>""

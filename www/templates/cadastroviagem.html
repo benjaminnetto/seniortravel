@@ -1,0 +1,27 @@
+<ion-view title = "Travel">
+    <ion-content>
+        <form name="form" ng-submit="salvar(viagem)">
+        <div class="list">
+            <label class="item item-input item-floating-label">
+              <span class="input-label">Destino</span>
+              <input type="text" placeholder="Destino" ng-model="viagem.destino" required> 
+            </label>
+            <label class="item item-input item-floating-label">
+              <span class="input-label">Preço</span>
+              <input type="text" placeholder="Preco" ng-model="viagem.preco" required>
+            </label>
+            <label class="item item-input item-floating-label">
+              <span class="input-label">Transporte</span>
+              <input type="text" placeholder="Transporte" ng-model="viagem.transporte" required>
+            </label>
+            <label class="item item-input item-floating-label">
+              <span class="input-label">Detalhes</span>
+              <input type="text" placeholder="Detalhes" ng-model="viagem.detalhes" required>
+            </label>
+          </div>
+        <button class="button button-block button-dark" ng-disabled="form.$invalid">
+                Cadastrar
+        </button>
+        </form>
+    </ion-content>
+</ion-view>

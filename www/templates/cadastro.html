@@ -1,0 +1,19 @@
+<ion-view title="Novo">
+    <ion-content>
+        <form name = "form" ng-submit="criar (usuario)">
+        <div class="list">
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Email</span>
+                <input type="email" placeholder="Email" ng-model="usuario.email" required>  
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Senha</span>
+                <input type="password" placeholder="Senha" ng-model="usuario.password" required>
+            </label>
+            <button class="button button-block button-dark" ng-disabled="form.$invalid">
+                    Criar
+            </button>
+        </div> 
+    </form> 
+    </ion-content>
+</ion-view>

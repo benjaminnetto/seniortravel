@@ -1,0 +1,22 @@
+<ion-view title="Pacotes">>
+
+    <ion-nav-buttons side="right">
+        <a class="button" ui-sref="cadastroviagem">Add</a>
+    </ion-nav-buttons>
+
+    <ion-content>
+        <ion-list>
+            <ion-item ng-repeat="viagem in viagens | filter: search | orderBy: 'nome'">
+                <a class="item" ui-sref="tabs.geral({id: viagem.$id})">
+                    <h2>{{viagem.destino}}</h2>
+                    <p>{{viagem.preco}}</p>
+                    <p>{{viagem.transporte}}</p>
+                </a>
+                <div class="button-bar">
+                    <button class="button button-dark" ng-click="apagar(viagem.$id)">Excluir</button>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+
+</ion-view>
