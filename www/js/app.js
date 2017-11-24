@@ -114,10 +114,10 @@ angular.module('starter', ['ionic', 'firebase'])
     }    
   });
 
-  $stateProvider.state('cadastroviagem', {
-    url: '/cadastroviagem',
-    templateUrl: 'templates/cadastroviagem.html',
-    controller: 'cadastroviagemCtrl'
+  $stateProvider.state('cadastropacote', {
+    url: '/cadastropacote',
+    templateUrl: 'templates/cadastropacote.html',
+    controller: 'cadastropacoteCtrl'
   });
 
 $urlRouterProvider.otherwise('/login');
@@ -156,27 +156,28 @@ $urlRouterProvider.otherwise('/login');
   }
 })
 
-.controller('cadastroviagemCtrl', function($scope, $firebaseArray, $state){ 
+.controller('cadastropacoteCtrl', function($scope, $firebaseArray, $state){ 
   
       $scope.viagem = {};
   
-      $scope.salvar = function(viagem) {
-        var ref = firebase.database().ref().child('viagens');
-        $firebaseArray(ref).$add(viagem);
+      $scope.salvar = function(pacote) {
+        var ref = firebase.database().ref().child('pacotes');
+        $firebaseArray(ref).$add(pacote);
   
         $state.go('tabs.pacotes');
       }
 })
 
 .controller('viagemCtrl', function(){
+
 })
 
 .controller('geralCtrl', function($scope, $state, $stateParams, $firebaseObject){ 
 
     var id = $stateParams.id;
 
-    var ref = firebase.database().ref("viagens").child(id);
-    $scope.viagem = $firebaseObject(ref);
+    var ref = firebase.database().ref("pacotes").child(id);
+    $scope.pacote = $firebaseObject(ref);
 
 })
 
@@ -184,12 +185,12 @@ $urlRouterProvider.otherwise('/login');
 
   var id = $stateParams.id;
   
-      var ref = firebase.database().ref("viagens").child(id);
-      $scope.viagem = $firebaseObject(ref);
+      var ref = firebase.database().ref("pacotes").child(id);
+      $scope.pacote = $firebaseObject(ref);
 
 })
 
-.controller('senhaCtrl', function(){ 
+.controller('senhaCtrl', function(){
 })
 
 .controller('roteiroCtrl', function(){
@@ -206,14 +207,14 @@ $urlRouterProvider.otherwise('/login');
 
 .controller('pacotesCtrl', function($scope, $firebaseArray){
 
-  var ref = firebase.database().ref().child("viagens");
-  $scope.viagens = $firebaseArray(ref);
+  var ref = firebase.database().ref().child("pacotes");
+  $scope.pacotes = $firebaseArray(ref);
   
   $scope.apagar = function(id) {
     
-          var obj = $scope.viagens.$getRecord(id);
+          var obj = $scope.pacotes.$getRecord(id);
     
-          $scope.viagens.$remove(obj); // objeto inteiro ou índice
+          $scope.pacotes.$remove(obj); // objeto inteiro ou índice
         }
   
   

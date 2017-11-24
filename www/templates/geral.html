@@ -1,10 +1,10 @@
 <ion-view title="Geral">
     <ion-content>
 
-        <h3>{{viagem.destino}}</h3>
+        <h3>{{pacote.destino}}</h3>
 
         <div class="list list-inset">
-            <a class="item" ui-sref="tabs.informacoes({id: viagem.$id})">
+            <a class="item" ui-sref="tabs.informacoes({id: pacote.$id})">
                 <center>Informações</center>
             </a>
 
@@ -28,4 +28,4 @@
             <button class="button button-dark" ui-sref="tabs.viagem" ng-click="tabs.viagem">Comprar</button>
         </div>
     </ion-content>
-</ion-view>""
+</ion-view>
