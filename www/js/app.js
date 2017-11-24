@@ -168,22 +168,42 @@ $urlRouterProvider.otherwise('/login');
       }
 })
 
-.controller('viagemCtrl', function(){
+.controller('viagemCtrl', function($scope, $firebaseArray, $state, $stateParams){
 
+    var user = firebase.auth().currentUser;
+  
+    var ref = firebase.database().ref("viagens").child(user.uid);
+    $scope.viagens = $firebaseArray(ref);
+  
 })
 
 .controller('geralCtrl', function($scope, $state, $stateParams, $firebaseObject){ 
 
     var id = $stateParams.id;
 
+    var user = firebase.auth().currentUser;
+
     var ref = firebase.database().ref("pacotes").child(id);
     $scope.pacote = $firebaseObject(ref);
+
+    $scope.comprar =function() {
+       var ref = firebase.database().ref("viagens").child(user.uid).child($scope.pacote.$id);
+       $firebaseObject(ref).$loaded(function(viagem) {
+         viagem.destino = $scope.pacote.destino;
+         viagem.preco = $scope.pacote.preco;
+         viagem.dataCompra = new Date().getTime();
+
+         viagem.$save().then(function() {
+           $state.go("tabs.viagem");
+         })
+       })
+    }
 
 })
 
 .controller('informacoesCtrl', function($scope, $state, $stateParams, $firebaseObject){
 
-  var id = $stateParams.id;
+      var id = $stateParams.id;
   
       var ref = firebase.database().ref("pacotes").child(id);
       $scope.pacote = $firebaseObject(ref);

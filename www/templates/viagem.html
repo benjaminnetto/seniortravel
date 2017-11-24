@@ -1,6 +1,15 @@
 <ion-view title="Viagens">
 
 <ion-content>
+        <ion-list>
+                <ion-item ng-repeat="viagem in viagens">
+                     <h2>{{viagem.destino}}</h2>
+                        <p>{{viagem.preco}}</p>
+                        <p>{{viagem.dataCompra | date: 'dd/MM/yyyy'}}</p>
+                        <!-- <p>{{viagem.transporte}}</p> -->
+                        <!-- <p>{{viagem.detalhes}}</p> -->
+                </ion-item>
+            </ion-list>
 </ion-content>
 
 </ion-view>
